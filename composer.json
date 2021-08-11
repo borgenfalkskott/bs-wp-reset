@@ -1,0 +1,14 @@
+{
+    "name": "borgenfalkskott/bs-wp-reset",
+    "description": "A reset plugin to make WordPress tight.",
+    "require": {
+        "php": ">=7.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "tommyskott",
+            "email": "tommy@borgenfalk.se"
+        }
+    ]
+}
