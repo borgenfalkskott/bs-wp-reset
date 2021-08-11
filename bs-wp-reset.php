@@ -8,11 +8,13 @@
     Author URI:   https://borgenfalk.se
     License:      MIT
     License URI:  https://github.com/borgenfalkskott/bs-wp-reset/blob/main/LICENSE
-    Text Domain:  bs
+    Text Domain:  bs-wp-reset
     Domain Path:  /languages
   */
 
   defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
+  $txtDomain = 'bs-wp-reset';
+
 
   /**
    * Remove WordPress version from meta
@@ -42,23 +44,23 @@
    * Login page: Change logo link url
    */
   add_filter('login_headerurl', function(){
-    return get_home_url();
+    return esc_url(get_home_url());
   });
 
 
   /**
-   * Login page: Change logo link alt text
+   * Login alt text
    */
   add_filter('login_headertext', function(){
-    return get_bloginfo('name');
+    return esc_attr(get_bloginfo('name'));
   });
 
 
   /**
-   * Login page: Change login error message
+   * Login error message
    */
   add_filter('login_errors', function(){
-    return _x('Error, wrong credentials!', 'Login error message', 'bs');
+    return _x('Error, wrong credentials!', 'Login error message', $txtDomain);
   });
 
 
@@ -69,4 +71,32 @@
     wp_dequeue_script('jquery');
     wp_deregister_script('jquery');
   });
+  
+  
+  /**
+   * Disable Wp emojis
+   */
+  remove_action('wp_head', 'print_emoji_detection_script', 7);
+  remove_action('admin_print_scripts', 'print_emoji_detection_script');
+  remove_action('wp_print_styles', 'print_emoji_styles');
+  remove_action('admin_print_styles', 'print_emoji_styles');
+  remove_filter('the_content_feed', 'wp_staticize_emoji');
+  remove_filter('comment_text_rss', 'wp_staticize_emoji');
+  remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
+
+  add_filter('tiny_mce_plugins', function($plugins){
+    if(is_array($plugins)){
+      return array_diff($plugins, array('wpemoji'));
+    } else{
+      return array();
+    }
+  });
+
+  add_filter('wp_resource_hints', function($urls, $relation_type){
+    if('dns-prefetch' == $relation_type){
+      $emoji_svg_url = apply_filters('emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/');
+      $urls = array_diff($urls, array($emoji_svg_url));
+    }
+    return $urls;
+  }, 10, 2);
 ?>
