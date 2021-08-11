@@ -13,7 +13,14 @@
   */
 
   defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
-  $txtDomain = 'bs-wp-reset';
+
+
+  /**
+   * Disable file editing
+   */
+  if( !defined('DISALLOW_FILE_EDIT')){
+    define('DISALLOW_FILE_EDIT', true);
+  }
 
 
   /**
@@ -60,7 +67,7 @@
    * Login error message
    */
   add_filter('login_errors', function(){
-    return _x('Error, wrong credentials!', 'Login error message', $txtDomain);
+    return _x('Error, wrong credentials!', 'Login error message', 'bs-wp-reset');
   });
 
 
