@@ -1,7 +1,7 @@
 {
     "name": "borgenfalkskott/bs-wp-reset",
     "description": "A reset plugin to make WordPress tight.",
-    "type": "wordpress-muplugin",
+    "type": "wordpress-plugin",
     "require": {
         "php": ">=7.4"
     },
