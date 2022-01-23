@@ -1,15 +1,15 @@
 {
-    "name": "borgenfalkskott/bs-wp-reset",
-    "description": "A reset plugin to make WordPress tight.",
-    "type": "wordpress-muplugin",
-    "require": {
-        "php": ">=7.4"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "tommyskott",
-            "email": "tommy@borgenfalk.se"
-        }
-    ]
+  "name": "borgenfalkskott/bs-wp-reset",
+  "description": "A reset plugin to make WordPress tight again.",
+  "type": "wordpress-muplugin",
+  "require": {
+    "php": ">=7.4"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "tommyskott",
+      "email": "tommy@borgenfalk.se"
+    }
+  ]
 }

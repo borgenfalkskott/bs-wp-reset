@@ -3,7 +3,7 @@
     Plugin Name:  B&S WordPress Reset
     Plugin URI:   https://github.com/borgenfalkskott/bs-wp-reset
     Description:  A reset plugin to make WordPress tight.
-    Version:      1.1.2
+    Version:      1.2.0
     Author:       Borgenfalk & Skott
     Author URI:   https://borgenfalk.se
     License:      MIT
@@ -68,15 +68,6 @@
    */
   add_filter('login_errors', function(){
     return _x('Error, wrong credentials!', 'Login error message', 'bs-wp-reset');
-  });
-
-
-  /**
-   * Dequeue and deregister jQuery from frontend
-   */
-  add_action( 'wp_enqueue_scripts', function(){
-    wp_dequeue_script('jquery');
-    wp_deregister_script('jquery');
   });
   
   
