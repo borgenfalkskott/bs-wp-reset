@@ -11,7 +11,6 @@ A reset plugin to make WordPress tight.
 - XML-RPC
 - RSS meta
 - Admin bar
-- jQuery
 - Wp Emojis
 
 ### Login page
@@ -19,6 +18,11 @@ A reset plugin to make WordPress tight.
 - Wp logo links to start page
 - Wp logo alt text
 - Login error message is more secure
+
+### This plugin does no longer disable jQuery
+
+To disable jQuery on the frontend, please install: [bs-wp-no-jquery](https://github.com/borgenfalkskott/bs-wp-no-jquery)  
+_We wanted to separate the disabling of jQuery to it's own plugin, cause sometimes a third party plugin has it as a dependency. In that case, you can still use this plugin and if you don't need jQuery, you can install B&S Wp No jQuery!_
 
 ## Install
 
